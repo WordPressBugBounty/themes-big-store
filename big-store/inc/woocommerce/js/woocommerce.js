@@ -2,6 +2,7 @@
 // BigStoreWooLib Custom Function
 /********************************/
 (function ($) {
+  var wpmlRtl = $('html').attr('dir');
   var BigStoreWooLib = {
     init: function () {
       this.bindEvents();
@@ -460,7 +461,7 @@
       } else {
         var cat_atply = false;
       }
-      if (big_store.big_store_rtl == true) {
+      if(big_store.big_store_rtl==true || wpmlRtl == 'rtl'){
         var bgstr_rtl = true;
       } else {
         var bgstr_rtl = false;
@@ -606,7 +607,7 @@
       } else {
         var cat_atply_p = false;
       }
-      if (big_store.big_store_rtl == true) {
+    if(big_store.big_store_rtl==true || wpmlRtl == 'rtl'){
         var bgstr_rtl = true;
       } else {
         var bgstr_rtl = false;
@@ -662,7 +663,7 @@
       } else {
         var cat_atply_l = false;
       }
-      if (big_store.big_store_rtl == true) {
+      if(big_store.big_store_rtl==true || wpmlRtl == 'rtl'){
         var bgstr_rtl = true;
       } else {
         var bgstr_rtl = false;
@@ -712,7 +713,7 @@
       } else {
         var cat_atply_c = false;
       }
-      if (big_store.big_store_rtl == true) {
+   if(big_store.big_store_rtl==true || wpmlRtl == 'rtl'){
         var bgstr_rtl = true;
       } else {
         var bgstr_rtl = false;
@@ -767,7 +768,7 @@
       } else {
         var cat_atply = false;
       }
-      if (big_store.big_store_rtl == true) {
+    if(big_store.big_store_rtl==true || wpmlRtl == 'rtl'){
         var bgstr_rtl = true;
       } else {
         var bgstr_rtl = false;

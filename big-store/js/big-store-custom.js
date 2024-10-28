@@ -2,8 +2,9 @@
 // BigStoreLib
 /**************/
 (function ($) {
+    var wpmlRtl = $('html').attr('dir');
     var BigStoreLib = {
-        init: function (){
+        init: function (){ 
             this.bindEvents();
         },
         bindEvents: function (){
@@ -262,7 +263,7 @@
                 });
         },
         Top2Slider:function(){
-          if(big_store.big_store_rtl==true){
+          if(big_store.big_store_rtl==true || wpmlRtl == 'rtl'){
           var bgstr_rtl = true;
          }else{
           var bgstr_rtl = false;
@@ -337,7 +338,7 @@
                           
         },
         TopMultiSlide:function(){
-                if(big_store.big_store_rtl==true){
+               if(big_store.big_store_rtl==true || wpmlRtl == 'rtl'){
                   var bgstr_rtl = true;
                 }else{
                   var bgstr_rtl = false;
@@ -380,7 +381,7 @@
 
            },
            TopFullSlide:function(){
-                if(big_store.big_store_rtl==true){
+               if(big_store.big_store_rtl==true || wpmlRtl == 'rtl'){
                   var bgstr_rtl = true;
                 }else{
                   var bgstr_rtl = false;
@@ -423,7 +424,7 @@
 
            },
 
-            MoveToTop:function(){
+            MoveToTop:function(){ 
                       /**************************************************/
                       // Show-hide Scroll to top & move-to-top arrow
                       /**************************************************/

@@ -73,19 +73,23 @@ function big_store_display_admin_notice() {
     $plugin_data = $plugin_data[0];
 
     // Get the specific plugin data
-    $plugin_pro_slug = isset($plugin_data['th-shop-mania-pro']['slug']) ? $plugin_data['th-shop-mania-pro']['slug'] : 'big-store-pro';
+    $plugin_pro_slug = isset($plugin_data['big-store-pro']['slug']) ? $plugin_data['big-store-pro']['slug'] : 'big-store-pro';
     $plugin_pro_file = isset($plugin_data['th-shop-mania-pro']['init']) ? $plugin_data['th-shop-mania-pro']['init'] : 'big-store-pro/big-store-pro.php';
     $plugin_companion_slug = isset($plugin_data['themehunk-customizer']['slug']) ? $plugin_data['themehunk-customizer']['slug'] : 'themehunk-customizer';
     $plugin_companion_file = isset($plugin_data['themehunk-customizer']['active_filename']) ? $plugin_data['themehunk-customizer']['active_filename'] : 'themehunk-customizer/themehunk-customizer.php';
+
+    $one_click_demo_import = isset($plugin_data['one-click-demo-import']['slug']) ? $plugin_data['one-click-demo-import']['slug'] : 'one-click-demo-import';
+    $one_click_demo_import_file = isset($plugin_data['one-click-demo-import']['active_filename']) ? $plugin_data['one-click-demo-import']['active_filename'] : 'one-click-demo-import/one-click-demo-import.php';
 
     // Check if plugins are installed and activated
     $plugin_pro_exists = file_exists(WP_PLUGIN_DIR . '/' . $plugin_pro_file);
     $plugin_pro_installed = is_plugin_active($plugin_pro_file);
     $plugin_companion_exists = file_exists(WP_PLUGIN_DIR . '/' . $plugin_companion_file);
     $plugin_companion_installed = is_plugin_active($plugin_companion_file);
+    $one_click_demo_import_exists = file_exists(WP_PLUGIN_DIR . '/' . $one_click_demo_import_file);
+    $one_click_demo_import_installed = is_plugin_active($one_click_demo_import_file);
 
- if ((isset($_GET['page']) && $_GET['page'] == 'thunk_started' ) || ((!$plugin_pro_exists && !$plugin_companion_exists) ||($plugin_pro_exists && !$plugin_pro_installed) || (!$plugin_pro_exists && $plugin_companion_exists && !$plugin_companion_installed)) ) {
-
+ if ((isset($_GET['page']) && $_GET['page'] == 'thunk_started' ) || ((!$plugin_pro_exists && !$plugin_companion_exists) ||($plugin_pro_exists && !$plugin_pro_installed) || (!$plugin_pro_exists && $plugin_companion_exists && !$plugin_companion_installed) || (!$one_click_demo_import_installed || !$plugin_companion_installed) ) ) {
 
     if ($plugin_pro_exists) {
         // 'th-shop-mania-pro' is installed
@@ -94,7 +98,7 @@ function big_store_display_admin_notice() {
             echo '<div class="notice notice-info th-shop-mania-wrapper-banner is-dismissible">
                 <div class="left"><h2 class="title">
                      '.sprintf( esc_html__( 'Thank you for installing %1$s - Version %2$s', 'big-store' ), esc_html( $theme_data->Name ), esc_html( $theme_data->Version ) ).'</h2>
-                    <p>' . esc_html__('To take full advantage of all the features this theme has to offer, please install and activate the ', 'big-store') . '<strong>ThemeHunk Customizer</strong></p>
+                    <p>' . esc_html__('To take full advantage of all the features this theme has to offer, please install and activate the ', 'big-store') . '<strong>Big Store Pro</strong></p>
                     <button class="button button-primary" id="go-to-starter-sites" data-slug="' . esc_attr($plugin_pro_slug) . '">' . esc_html__('Go to Ready To Import website Templates ', 'big-store') . '</button>
                 </div>
                 <div class="right">
@@ -117,6 +121,30 @@ function big_store_display_admin_notice() {
             </div>';
         }
     } else {
+
+// Get the plugin data
+$plugin_data = get_theme_support('lite-demo-plugins');
+$plugin_data = $plugin_data[0];
+
+// Initialize flags
+$all_installed = true;
+$all_activated = true;
+
+// Check each plugin's installation and activation status
+foreach ($plugin_data as $plugin_slug => $plugin_info) {
+    // Check if the plugin is installed
+    if (!file_exists(WP_PLUGIN_DIR . '/' . $plugin_info['active_filename'])) {
+        $all_installed = false;
+        break;
+    }
+
+    // Check if the plugin is activated
+    if (!is_plugin_active($plugin_info['active_filename'])) {
+        $all_activated = false;
+    }
+}
+
+
         // 'th-shop-mania-pro' is not installed, check 'hunk-companion'
         $plugin_companion_installed = is_plugin_active($plugin_companion_file);
         $plugin_companion_exists = file_exists(WP_PLUGIN_DIR . '/' . $plugin_companion_file);
@@ -125,10 +153,10 @@ function big_store_display_admin_notice() {
             <div class="left">
                   <h2 class="title">
                      '.sprintf( esc_html__( 'Thank you for installing %1$s - Version %2$s', 'big-store' ), esc_html( $theme_data->Name ), esc_html( $theme_data->Version ) ).'</h2>
-                    <p>' . esc_html__('To take full advantage of all the features this theme has to offer, please install and activate the ', 'big-store') . '<strong>ThemeHunk Customizer</strong></p>';
+                    <p>' . esc_html__('To take full advantage of all the features this theme has to offer, please install and activate the ', 'big-store') . '<strong>ThemeHunk Customizer & One Click Demo Import</strong></p>';
 
-        if ($plugin_companion_exists) {
-            if ($plugin_companion_installed) {
+        if ($all_installed) {
+            if ($all_activated) {
                 echo '<button class="button button-primary" id="go-to-starter-sites" data-slug="' . esc_attr($plugin_companion_slug) . '">' . esc_html__('Go to Ready To Import website Templates ', 'big-store') . '<span class="dashicons dashicons-update loader"></span></button>';
             } else {
                 echo '<button class="button button-primary" id="activate-themehunk-customizer" data-slug="' . esc_attr($plugin_companion_slug) . '"><span>' . esc_html__('Activate', 'big-store') . '</span><span class="dashicons dashicons-update loader"></span></button> <button class="button button-primary" id="go-to-starter-sites" data-slug="' . esc_attr($plugin_companion_slug) . '" disabled>' . esc_html__('Go to Ready To Import website Templates ', 'big-store') . '</button>';
@@ -148,7 +176,6 @@ function big_store_display_admin_notice() {
 }
 // add below line containg anchor a tag indise the banner wrapper if you want to use hide banner if clicks on banner close button permanently.
 // <a href="?notice-disable=1"  class="notice-dismiss dashicons dashicons-dismiss dashicons-dismiss-icon"></a>
-
 
 function big_store_install_custom_plugin($plugin_slug) {
     require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
@@ -176,7 +203,7 @@ function big_store_install_custom_plugin($plugin_slug) {
 // AJAX handler for installing and activating plugins
 add_action('wp_ajax_big_store_install_and_activate_callback', 'big_store_install_and_activate_callback');
 
-// Callback function to install and activate plugin
+// Callback function to install and activate plugins
 function big_store_install_and_activate_callback() {
     // Check nonce for security
     check_ajax_referer('thactivatenonce', 'security');
@@ -189,42 +216,53 @@ function big_store_install_and_activate_callback() {
         return;
     }
 
-    $plugin_file = WP_PLUGIN_DIR . '/' . $plugin_slug . '/' . $plugin_slug . '.php';
+    // Determine which plugins to install based on the slug
+    $pluginArray = array();
 
-    // Install the plugin
-    if (!file_exists($plugin_file)) {
-        // Start output buffering to capture the plugin installation output
-        ob_start();
-        
-        $status = big_store_install_custom_plugin($plugin_slug);
-        
-        // Get the buffered content
-        $install_output = ob_get_clean();
-        
-        if (is_wp_error($status)) {
-            wp_send_json_error(array('message' => $status->get_error_message(), 'install_output' => $install_output));
-            return;
-        }
-        
-        // Check if the plugin file exists after installation
+    if ($plugin_slug == 'big-store-pro') {
+        $pluginArray = array('big-store-pro');
+    } else {
+        $pluginArray = array('themehunk-customizer', 'one-click-demo-import');
+    }
+
+    foreach ($pluginArray as $slug) {
+        $plugin_file = WP_PLUGIN_DIR . '/' . $slug . '/' . $slug . '.php';
+
+        // Install the plugin if it's not already installed
         if (!file_exists($plugin_file)) {
-            wp_send_json_error(array('message' => 'Plugin file does not exist after installation.', 'install_output' => $install_output));
-            return;
+            // Start output buffering to capture the plugin installation output
+            ob_start();
+
+            $status = big_store_install_custom_plugin($slug);
+
+            // Get the buffered content
+            $install_output = ob_get_clean();
+
+            if ($status !== "success") {
+                wp_send_json_error(array('message' => $status, 'install_output' => $install_output));
+                return;
+            }
+
+            // Check if the plugin file exists after installation
+            if (!file_exists($plugin_file)) {
+                wp_send_json_error(array('message' => 'Plugin file does not exist after installation for ' . $slug, 'install_output' => $install_output));
+                return;
+            }
+        }
+
+        // Activate the plugin if it's not already activated
+        if (!is_plugin_active($plugin_file)) {
+            $status = activate_plugin($plugin_file);
+            if (is_wp_error($status)) {
+                wp_send_json_error(array('message' => $status->get_error_message()));
+                return;
+            }
         }
     }
 
-    // Activate the plugin
-    if (!is_plugin_active($plugin_file)) {
-        $status = activate_plugin($plugin_file);
-        if (is_wp_error($status)) {
-            wp_send_json_error(array('message' => $status->get_error_message()));
-            return;
-        }
-       
-    }
-     return 'Plugin installed and activated successfully.';
-   
+    wp_send_json_success(array('message' => 'Plugins installed and activated successfully.'));
 }
+
 
 
 function big_store_admin_script($hook_suffix) {
@@ -260,3 +298,4 @@ add_action('admin_enqueue_scripts', 'big_store_admin_script');
 // Hook the function to clear the cookie when the theme is switched to
 add_action('after_switch_theme', 'big_store_clear_notice_cookie');
 ?>
+

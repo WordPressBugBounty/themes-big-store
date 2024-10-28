@@ -11,7 +11,7 @@
  * Theme functions and definitions
  */
 if ( ! function_exists( 'big_store_setup' ) ) :
-define( 'BIG_STORE_THEME_VERSION','2.0.4');
+define( 'BIG_STORE_THEME_VERSION','2.0.6');
 define( 'BIG_STORE_THEME_DIR', get_template_directory() . '/' );
 define( 'BIG_STORE_THEME_URI', get_template_directory_uri() . '/' );
 define( 'BIG_STORE_THEME_SETTINGS', 'big-store-settings' );
@@ -206,6 +206,23 @@ define( 'BIG_STORE_THEME_SETTINGS', 'big-store-settings' );
                 'name' => esc_html__( 'Megamenu plugin from Themehunk.', 'big-store' ),
                 'active_filename' => 'themehunk-megamenu-plus/themehunk-megamenu.php',
             ),
+        ) );
+
+        add_theme_support( 'lite-demo-plugins', array(
+
+        	'themehunk-customizer' => array(
+                'name' => esc_html__( 'Themehunk Customizer (Highly Recommended)', 'big-store' ),
+                 'img' => 'icon-128x128.png',
+                'active_filename' => 'themehunk-customizer/themehunk-customizer.php',
+            ),
+            
+            'one-click-demo-import' => array(
+                'name' => esc_html__( 'One Click Demo Import', 'big-store' ),
+                 'img' => 'icon-128x128.png',
+                'active_filename' => 'one-click-demo-import/one-click-demo-import.php',
+            ),
+            
+
         ) );
 	}
 endif;
