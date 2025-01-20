@@ -314,9 +314,7 @@ if ( ! class_exists( 'Big_Store_Pro_Woocommerce_Ext' ) ) :
 				//category slider coloum
 				'big_store_cat_item_no' => get_theme_mod('big_store_cat_item_no','6'),
 				'big_store_rtl' => (bool)get_theme_mod('big_store_rtl'),
-				
-				
-				
+				'bignonce'         => wp_create_nonce( 'bigstore_nonce' ),	
 			);
            wp_localize_script( 'big-store-woocommerce-js', 'bigstore',  $localize );	
            wp_enqueue_script('open-quick-view', BIG_STORE_THEME_URI.'inc/woocommerce/quick-view/js/quick-view.js', array( 'jquery' ), '', true );

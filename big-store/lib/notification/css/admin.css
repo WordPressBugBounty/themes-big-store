@@ -59,7 +59,9 @@
     margin: 0 0 27px 0;
     line-height: 27px;
 }
-
+ .th-shop-mania-wrapper-banner .notice-dismiss{
+    padding: 0;
+}
 @-webkit-keyframes rotating /* Safari and Chrome */ {
     from {
       -webkit-transform: rotate(0deg);

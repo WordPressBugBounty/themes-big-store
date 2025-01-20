@@ -11,7 +11,7 @@
  * Theme functions and definitions
  */
 if ( ! function_exists( 'big_store_setup' ) ) :
-define( 'BIG_STORE_THEME_VERSION','2.0.6');
+define( 'BIG_STORE_THEME_VERSION','2.0.7');
 define( 'BIG_STORE_THEME_DIR', get_template_directory() . '/' );
 define( 'BIG_STORE_THEME_URI', get_template_directory_uri() . '/' );
 define( 'BIG_STORE_THEME_SETTINGS', 'big-store-settings' );
@@ -114,6 +114,11 @@ define( 'BIG_STORE_THEME_SETTINGS', 'big-store-settings' );
                  'img' => 'icon-128x128.png',
                 'active_filename' => 'themehunk-customizer/themehunk-customizer.php',
             ),
+            'vayu-blocks' => array(
+				'name' => esc_html__( 'Vayu blocks For Gutenberg', 'big-store' ),
+				'img' => 'icon-128x128.png',
+				'active_filename' => 'vayu-blocks/vayu-blocks.php',
+				),
             'th-advance-product-search' => array(
             'name' => esc_html__( 'TH Advance Product Search', 'big-store' ),
             'img' => 'icon-128x128.gif',
@@ -129,40 +134,21 @@ define( 'BIG_STORE_THEME_SETTINGS', 'big-store-settings' );
                   'img' => 'icon-128x128.gif',
                  'active_filename' => 'th-product-compare/th-product-compare.php',
              ),
-            'unlimited-blocks' => array(
-				'name' => esc_html__( 'Unlimited blocks For Gutenberg', 'big-store' ),
-				'img' => 'icon-128x128.png',
-				'active_filename' => 'unlimited-blocks/unlimited-blocks.php',
-				),
-            'th-variation-swatches' => array(
-                'name' => esc_html__( 'TH Variation Swatches', 'big-store' ),
-                 'img' => 'icon-128x128.gif',
-                'active_filename' => 'th-variation-swatches/th-variation-swatches.php',
-            ),
             'lead-form-builder' => array(
                 'name' => esc_html__( 'Lead Form Builder', 'big-store' ),
                  'img' => 'icon-128x128.png',
                 'active_filename' => 'lead-form-builder/lead-form-builder.php',
             ),
+             'th-variation-swatches' => array(
+                'name' => esc_html__( 'TH Variation Swatches', 'big-store' ),
+                 'img' => 'icon-128x128.gif',
+                'active_filename' => 'th-variation-swatches/th-variation-swatches.php',
+            ),
             'wp-popup-builder' => array(
                 'name' => esc_html__( 'WP Popup Builder – Popup Forms & Newsletter', 'big-store' ),
                  'img' => 'icon-128x128.png',
                 'active_filename' => 'wp-popup-builder/wp-popup-builder.php',
-            ), 
-            'woocommerce' => array(
-                'name' => esc_html__( 'Woocommerce', 'big-store' ),
-                 'img' => 'icon-128x128.gif',
-                'active_filename' => 'woocommerce/woocommerce.php',
-            ),
-
-            'yith-woocommerce-wishlist' => array(
-                 'name' => esc_html__( 'YITH WooCommerce Wishlist', 'big-store' ),
-                  'img' => 'icon-128x128.jpg',
-                 'active_filename' => 'yith-woocommerce-wishlist/init.php',
-             ),
-            
-            
-
+            )
         ) );
 
         // Import Data Content plugins
@@ -172,29 +158,6 @@ define( 'BIG_STORE_THEME_SETTINGS', 'big-store-settings' );
                  'img' => 'icon-128x128.png',
                 'active_filename' => 'themehunk-customizer/themehunk-customizer.php',
             ),
-
-            'one-click-demo-import' => array(
-                'name' => esc_html__( 'One Click Demo Import', 'big-store' ),
-                'img' => 'icon-128x128.png',
-                'active_filename' => 'one-click-demo-import/one-click-demo-import.php',
-            ), 
-            'woocommerce' => array(
-                'name' => esc_html__( 'Woocommerce', 'big-store' ),
-                'img' => 'icon-128x128.gif',
-                'active_filename' => 'woocommerce/woocommerce.php',
-            ),
-            
-            'th-advance-product-search' => array(
-            'name' => esc_html__( 'TH Advance Product Search', 'big-store' ),
-            'img' => 'icon-128x128.gif',
-            'active_filename' => 'th-advance-product-search/th-advance-product-search.php',
-            ),
-
-            'th-all-in-one-woo-cart' => array(
-                 'name' => esc_html__( 'TH All In One Woo Cart', 'big-store' ),
-                  'img' => 'icon-128x128.gif',
-                 'active_filename' => 'th-all-in-one-woo-cart/th-all-in-one-woo-cart.php',
-             ),
 
         ));
 

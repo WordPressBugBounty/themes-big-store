@@ -528,6 +528,7 @@
             data: {
               action: "big_store_cat_filter_ajax",
               data_cat_slug: data_term_id,
+              nonce:bigstore.bignonce
             },
             dataType: "html",
           }).done(function (response) {
@@ -876,6 +877,7 @@
             data: {
               action: "big_store_cat_filter_ajax",
               data_cat_slug: data_term_id,
+              nonce:bigstore.bignonce
             },
             dataType: "html",
           }).done(function (response) {

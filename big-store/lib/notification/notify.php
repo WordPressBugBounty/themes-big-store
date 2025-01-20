@@ -1,46 +1,33 @@
 <?php
+ob_start();
 include_once(ABSPATH . 'wp-admin/includes/plugin.php');
-
 function big_store_set_cookie() { 
- 
        $expire_time = time() + (86400 * 7); // 7 days in seconds
-
     if (!isset($_COOKIE['big_store_thms_time'])) {
         // Set a cookie for 7 days
         setcookie('big_store_thms_time', $expire_time, $expire_time, COOKIEPATH, COOKIE_DOMAIN);
     }
- 
-    }
+}
     function big_store_unset_cookie(){
-
             $visit_time = time();
     if (isset($_COOKIE['big_store_thms_time']) && $_COOKIE['big_store_thms_time'] < $visit_time) {
         setcookie('big_store_thms_time', '', time() - 3600, COOKIEPATH, COOKIE_DOMAIN);
     }
-    }
-
+}
     function big_store_clear_notice_cookie() {
-    // Clear the cookie when the theme is switched
     if (isset($_COOKIE['big_store_thms_time'])) {
         setcookie('big_store_thms_time', '', time() - 3600, COOKIEPATH, COOKIE_DOMAIN);
     }
 }
-
     if(isset($_GET['notice-disable']) && $_GET['notice-disable'] == true){
         add_action('admin_init', 'big_store_set_cookie');
         }
-
-
-        if(!isset($_COOKIE['big_store_thms_time'])) {
+    if(!isset($_COOKIE['big_store_thms_time'])) {
              add_action('admin_notices', 'big_store_display_admin_notice');
-
         }
-
         if(isset($_COOKIE['big_store_thms_time'])) {
             add_action( 'admin_notices', 'big_store_unset_cookie');
         }
-    // add_action('admin_notices', 'big_store_display_admin_notice');
-
 // Display admin notice
 function big_store_display_admin_notice() {
     // clearstatcache();
@@ -51,23 +38,18 @@ function big_store_display_admin_notice() {
         'users',
         'appearance_page_thunk_started' // appearance_page_thunk_started
     );
-
     // Get the current screen
     $current_screen = get_current_screen();
-
     // Check if the current screen is one of the allowed pages
     if (!in_array($current_screen->base, $allowed_pages)) {
         return; // Exit if not on an allowed page
     }
-    
      global $current_user;
     $user_id   = $current_user->ID;
     $theme_data  = wp_get_theme();
-
     if ( get_user_meta( $user_id, esc_html( $theme_data->get( 'TextDomain' ) ) . '_notice_ignore' ) ) {
         return;
     }
-
  // Retrieve the theme support data
     $plugin_data = get_theme_support('recommend-plugins');
     $plugin_data = $plugin_data[0];
@@ -90,9 +72,7 @@ function big_store_display_admin_notice() {
     $one_click_demo_import_installed = is_plugin_active($one_click_demo_import_file);
 
  if ((isset($_GET['page']) && $_GET['page'] == 'thunk_started' ) || ((!$plugin_pro_exists && !$plugin_companion_exists) ||($plugin_pro_exists && !$plugin_pro_installed) || (!$plugin_pro_exists && $plugin_companion_exists && !$plugin_companion_installed) || (!$one_click_demo_import_installed || !$plugin_companion_installed) ) ) {
-
     if ($plugin_pro_exists) {
-        // 'th-shop-mania-pro' is installed
         if ($plugin_pro_installed) {
             // Plugin is activated
             echo '<div class="notice notice-info th-shop-mania-wrapper-banner is-dismissible">
@@ -121,7 +101,6 @@ function big_store_display_admin_notice() {
             </div>';
         }
     } else {
-
 // Get the plugin data
 $plugin_data = get_theme_support('lite-demo-plugins');
 $plugin_data = $plugin_data[0];
@@ -137,14 +116,11 @@ foreach ($plugin_data as $plugin_slug => $plugin_info) {
         $all_installed = false;
         break;
     }
-
     // Check if the plugin is activated
     if (!is_plugin_active($plugin_info['active_filename'])) {
         $all_activated = false;
     }
 }
-
-
         // 'th-shop-mania-pro' is not installed, check 'hunk-companion'
         $plugin_companion_installed = is_plugin_active($plugin_companion_file);
         $plugin_companion_exists = file_exists(WP_PLUGIN_DIR . '/' . $plugin_companion_file);
@@ -164,7 +140,6 @@ foreach ($plugin_data as $plugin_slug => $plugin_info) {
         } else {
             echo '<button class="button button-primary" id="install-themehunk-customizer" data-slug="' . esc_attr($plugin_companion_slug) . '"><span>' . esc_html__('Install', 'big-store') . '</span><span class="dashicons dashicons-update loader"></span></button><button class="button button-primary" id="go-to-starter-sites" data-slug="' . esc_attr($plugin_companion_slug) . '"disabled >' . esc_html__('Go to Ready To Import website Templates ', 'big-store') . '</button>';
         }
-
         echo '</div>
             <div class="right">
                 <img src="' . esc_url(get_template_directory_uri() . '/lib/notification/banner.png') . '" />
@@ -174,9 +149,6 @@ foreach ($plugin_data as $plugin_slug => $plugin_info) {
     }
 }
 }
-// add below line containg anchor a tag indise the banner wrapper if you want to use hide banner if clicks on banner close button permanently.
-// <a href="?notice-disable=1"  class="notice-dismiss dashicons dashicons-dismiss dashicons-dismiss-icon"></a>
-
 function big_store_install_custom_plugin($plugin_slug) {
     require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
     require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
@@ -196,10 +168,8 @@ function big_store_install_custom_plugin($plugin_slug) {
     if (is_wp_error($result)) {
         return $result->get_error_message();
     }
-
     return "success";
 }
-
 // AJAX handler for installing and activating plugins
 add_action('wp_ajax_big_store_install_and_activate_callback', 'big_store_install_and_activate_callback');
 
@@ -249,7 +219,6 @@ function big_store_install_and_activate_callback() {
                 return;
             }
         }
-
         // Activate the plugin if it's not already activated
         if (!is_plugin_active($plugin_file)) {
             $status = activate_plugin($plugin_file);
@@ -259,12 +228,8 @@ function big_store_install_and_activate_callback() {
             }
         }
     }
-
     wp_send_json_success(array('message' => 'Plugins installed and activated successfully.'));
 }
-
-
-
 function big_store_admin_script($hook_suffix) {
     // Define the pages where the script should be enqueued
     $allowed_pages = array(
@@ -279,7 +244,6 @@ function big_store_admin_script($hook_suffix) {
     if (!in_array($hook_suffix, $allowed_pages)) {
         return;
     }
-
     // Enqueue styles and scripts only on the allowed pages
     wp_enqueue_style('big-store-admin-css', get_template_directory_uri() . '/lib/notification/css/admin.css', array(), BIG_STORE_THEME_VERSION, 'all');
     wp_enqueue_script('big-store-notifyjs', get_template_directory_uri() . '/lib/notification/js/notify.js', array('jquery'), BIG_STORE_THEME_VERSION, true);
@@ -297,5 +261,4 @@ add_action('admin_enqueue_scripts', 'big_store_admin_script');
 
 // Hook the function to clear the cookie when the theme is switched to
 add_action('after_switch_theme', 'big_store_clear_notice_cookie');
-?>
-
+ob_end_flush();

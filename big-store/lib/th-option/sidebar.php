@@ -23,12 +23,12 @@
             </div>
             <hr>
 
-            <div class="section">
+            <!-- <div class="section">
                 <h3><?php _e('Video Tutorials','big-store'); ?></h3>
                 <p><?php _e('Want a guide? We have video tutorials to walk you through getting started.','big-store'); ?> </p>
                 <a href="https://www.youtube.com/watch?v=TifcWJ_LLOo&list=PLe42R8TvpeK0ZaltzLB7dv_XlFw_44uoD" target="_blank" class="sidebar-link"><?php _e('Watch Videos','big-store'); ?></a>
             </div>
-            <hr>
+            <hr> -->
 
             <div class="section">
                 <h3><?php _e('Support','big-store'); ?> </h3>

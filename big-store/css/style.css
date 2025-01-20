@@ -3387,7 +3387,8 @@ header #open-cart {
 .thunk-compare .compare-button a.compare.button,
 .woocommerce .thunk-product-hover .button.th-button,
 .woocommerce ul.products li.product .button,
-.thunk-product-hover .thunk-quickview a {
+.thunk-product-hover .thunk-quickview a,
+.thunk-product-hover .yith-wcwl-add-to-wishlist-button {
   display: block;
   font-size: 0;
   padding: 0;
@@ -5360,7 +5361,8 @@ section.upsells.products > h2,
   width: 200px;
 }
 /*compare style*/
-.woocommerce .entry-summary a.th-product-compare-btn{
+.woocommerce .entry-summary a.th-product-compare-btn,
+.summary .yith-wcwl-add-to-wishlist-button{
   border: 1px solid;
   border-radius: 0;
   color: #9c9c9c;
@@ -8506,6 +8508,50 @@ color:#fff;
   padding: 12px;
 }
 /* Landscape*/
+html[dir="rtl"] .woocommerce-product-gallery{
+  direction: rtl!important;
+}
+/* New Wishlist 2025  */
+.summary .yith-wcwl-add-to-wishlist-button__label{
+  display: none;
+}
+.summary .yith-wcwl-add-to-wishlist-button:before{
+    content: "\e912";
+    font-family: th-icon;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+}
+.summary .yith-add-to-wishlist-button-block--single{
+    margin: 0;
+    float: left;
+}
+.theme-big-store .yith-wcwl-add-to-wishlist-button svg{
+    display: none;
+}
+.theme-big-store .yith-wcwl-add-to-wishlist-button:before{
+     content: "\e912";
+    font-family: th-icon;
+    font-size: 16px;
+}
+.theme-big-store .yith-wcwl-add-to-wishlist-button--added:before{
+    content: "\e909";
+}
+.theme-big-store .yith-wcwl-add-to-wishlist-button--added .yith-wcwl-add-to-wishlist-button__label{
+    display: none;
+}
+.theme-big-store .yith-wcwl-add-to-wishlist-button__label{
+  display: none;
+}
+.theme-big-store .yith-add-to-wishlist-button-block{
+  margin: 0;
+}
+.thunk-product-hover .yith-wcwl-add-to-wishlist-button:hover{
+  color: #616161;
+}
 @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
   .thunk-slide .owl-stage-outer {
     padding: 0;
@@ -10635,6 +10681,22 @@ display:inline-flex;
 
 min-width: 295px!important;
 
+}
+.main-header-col1{
+  max-width: 108px;
+}
+.main-header-col1 img{
+  max-width: 100%;
+}
+.main-header-col3 .thunk-icon{
+  margin-right: 6px;
+}
+html[dir="rtl"] .woocommerce #content div.product div.summary .prev_next_buttons {
+    position: relative;
+    top: initial;
+    left: initial;
+   display: inline-flex;
+    margin-bottom: 12px;
 }
 
 }

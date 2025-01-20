@@ -1,10 +1,9 @@
 == Theme: Big Store ==
 Contributors: ThemeHunk
 Tags: wide-blocks, block-patterns, block-styles, editor-style, e-commerce, blog, block-patterns, grid-layout, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-logo, custom-menu, add_editor_style, featured-image-header, featured-images, footer-widgets, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready.
-Requires at least: WordPress 5.0
-Requires PHP: 7.0
-Tested up to: 6.6
-Stable tag: 2.0.6
+Requires PHP: 5.5
+Tested up to: 6.7
+Stable tag: 2.0.7
 License: GPLv3 or later
 License URL: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -24,11 +23,24 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 
 == Changelog ==
 
+= 2.0.7 =
+* Update: Banner notification added.
+* Fix: Security Issue Fixed.
+* Update: New Wishlist added.
+* New: Vayu Blocks added in recommended plugins.
+* New: big-store added in new imprter.
+* Update: Welcome tab style issue updated.
+* New: Twitter share button added. 
+* Update: Video tab removed.
+* Update: Theme tested with new importer.
+
 = 2.0.6 =
-* Update: Theme made compatible with WPML RTL.
+* Update: Notification style improved.
 
 = 2.0.5 =
 * Update: One click demo import added in required plugins.
+* Update: Theme made compatible with WPML RTL.
+* Update: the admin notice style issue resolved.
 
 = 2.0.4 =
 * Update: Theme limitation added.
@@ -283,8 +295,16 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 Initial release
 
 == Upgrade Notice ==
-= 2.0.6 =
-* Update: Theme made compatible with WPML RTL.
+= 2.0.7 =
+* Update: Banner notification added.
+* Fix: Security Issue Fixed.
+* Update: New Wishlist added.
+* New: Vayu Blocks added in recommended plugins.
+* New: big-store added in new imprter.
+* Update: Welcome tab style issue updated.
+* New: Twitter share button added. 
+* Update: Video tab removed.
+* Update: Theme tested with new importer.
 
 == Resources ==
  
