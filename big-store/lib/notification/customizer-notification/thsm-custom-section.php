@@ -26,16 +26,12 @@ if (class_exists('WP_Customize_Section')) {
                 $plugin_pro_file = isset($plugin_data['th-shop-mania-pro']['init']) ? $plugin_data['th-shop-mania-pro']['init'] : 'big-store-pro/big-store-pro.php';
                 $plugin_companion_slug = isset($plugin_data['themehunk-customizer']['slug']) ? $plugin_data['themehunk-customizer']['slug'] : 'themehunk-customizer';
                 $plugin_companion_file = isset($plugin_data['themehunk-customizer']['active_filename']) ? $plugin_data['themehunk-customizer']['active_filename'] : 'themehunk-customizer/themehunk-customizer.php';
-                $one_click_demo_import = isset($plugin_data['one-click-demo-import']['slug']) ? $plugin_data['one-click-demo-import']['slug'] : 'one-click-demo-import';
-                $one_click_demo_import_file = isset($plugin_data['one-click-demo-import']['active_filename']) ? $plugin_data['one-click-demo-import']['active_filename'] : 'one-click-demo-import/one-click-demo-import.php';
 
                 // Check if plugins are installed and activated
                 $plugin_pro_exists = file_exists(WP_PLUGIN_DIR . '/' . $plugin_pro_file);
                 $plugin_pro_installed = is_plugin_active($plugin_pro_file);
                 $plugin_companion_exists = file_exists(WP_PLUGIN_DIR . '/' . $plugin_companion_file);
                 $plugin_companion_installed = is_plugin_active($plugin_companion_file);
-                $one_click_demo_import_exists = file_exists(WP_PLUGIN_DIR . '/' . $one_click_demo_import_file);
-                $one_click_demo_import_installed = is_plugin_active($one_click_demo_import_file);
 
                     $go_to_starter_sites_disabled = true;
 
@@ -71,10 +67,10 @@ if (class_exists('WP_Customize_Section')) {
                         if ($all_activated) {
                             $go_to_starter_sites_disabled = false;
                         } else {
-                            echo '<p>'. esc_html__('To take full advantage of all the features this theme has to offer, please install and activate the ThemeHunk Customizer & One Click Demo Import', 'big-store') .'</p><button class="button button-primary" id="activate-themehunk-customizer" data-slug="' . esc_attr($plugin_companion_slug) . '"><span class="text">'. esc_html__('Activate', 'big-store') .'</span><span class="icon dashicons dashicons-update th-loader"></span></button>';
+                            echo '<p>'. esc_html__('To take full advantage of all the features this theme has to offer, please install and activate the ThemeHunk Customizer', 'big-store') .'</p><button class="button button-primary" id="activate-themehunk-customizer" data-slug="' . esc_attr($plugin_companion_slug) . '"><span class="text">'. esc_html__('Activate', 'big-store') .'</span><span class="icon dashicons dashicons-update th-loader"></span></button>';
                         }
                     } else {
-                        echo '<p>'. esc_html__('To take full advantage of all the features this theme has to offer, please install and activate the ThemeHunk Customizer & One Click Demo Import', 'big-store') .'</p><button class="button button-primary" id="install-themehunk-customizer" data-slug="' . esc_attr($plugin_companion_slug) . '"><span class="text">'. esc_html__('Install Now', 'big-store') .'</span><span class="icon dashicons dashicons-update th-loader"></span></button>';
+                        echo '<p>'. esc_html__('To take full advantage of all the features this theme has to offer, please install and activate the ThemeHunk Customizer', 'big-store') .'</p><button class="button button-primary" id="install-themehunk-customizer" data-slug="' . esc_attr($plugin_companion_slug) . '"><span class="text">'. esc_html__('Install Now', 'big-store') .'</span><span class="icon dashicons dashicons-update th-loader"></span></button>';
                     }
 
                     // Go to Starter Sites button (always present, conditionally enabled/disabled)

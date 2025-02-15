@@ -8,7 +8,7 @@ function big_store_customizer_scripts() {
     wp_localize_script('big-store-customizer', 'theme_data_customizer', array(
         'ajax_url' => admin_url('admin-ajax.php'),
         'security' => wp_create_nonce('thactivatenonce'),
-        'redirectUrl' => esc_url(admin_url('themes.php?page=one-click-demo-import')),
+        'redirectUrl' => esc_url(admin_url('themes.php?page=themehunk-site-library&template=step')),
         'redirectUrlPro' => esc_url(admin_url('themes.php?page=themehunk-site-library'))
     ));
 }

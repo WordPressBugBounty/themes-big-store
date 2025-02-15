@@ -7617,6 +7617,9 @@ position: relative;
     border-radius: 4px;
     text-align: center;
 }
+.mhdrtwo .header-icon a.prd-search-icon > .thaps-search-box > .th-icon{
+    margin: 0;
+  }
 .icon_style .thaps-search-form {
 
     z-index: 2!important;

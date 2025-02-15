@@ -177,15 +177,7 @@ define( 'BIG_STORE_THEME_SETTINGS', 'big-store-settings' );
                 'name' => esc_html__( 'Themehunk Customizer (Highly Recommended)', 'big-store' ),
                  'img' => 'icon-128x128.png',
                 'active_filename' => 'themehunk-customizer/themehunk-customizer.php',
-            ),
-            
-            'one-click-demo-import' => array(
-                'name' => esc_html__( 'One Click Demo Import', 'big-store' ),
-                 'img' => 'icon-128x128.png',
-                'active_filename' => 'one-click-demo-import/one-click-demo-import.php',
-            ),
-            
-
+            )
         ) );
 	}
 endif;

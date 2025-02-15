@@ -60,18 +60,13 @@ function big_store_display_admin_notice() {
     $plugin_companion_slug = isset($plugin_data['themehunk-customizer']['slug']) ? $plugin_data['themehunk-customizer']['slug'] : 'themehunk-customizer';
     $plugin_companion_file = isset($plugin_data['themehunk-customizer']['active_filename']) ? $plugin_data['themehunk-customizer']['active_filename'] : 'themehunk-customizer/themehunk-customizer.php';
 
-    $one_click_demo_import = isset($plugin_data['one-click-demo-import']['slug']) ? $plugin_data['one-click-demo-import']['slug'] : 'one-click-demo-import';
-    $one_click_demo_import_file = isset($plugin_data['one-click-demo-import']['active_filename']) ? $plugin_data['one-click-demo-import']['active_filename'] : 'one-click-demo-import/one-click-demo-import.php';
-
     // Check if plugins are installed and activated
     $plugin_pro_exists = file_exists(WP_PLUGIN_DIR . '/' . $plugin_pro_file);
     $plugin_pro_installed = is_plugin_active($plugin_pro_file);
     $plugin_companion_exists = file_exists(WP_PLUGIN_DIR . '/' . $plugin_companion_file);
     $plugin_companion_installed = is_plugin_active($plugin_companion_file);
-    $one_click_demo_import_exists = file_exists(WP_PLUGIN_DIR . '/' . $one_click_demo_import_file);
-    $one_click_demo_import_installed = is_plugin_active($one_click_demo_import_file);
 
- if ((isset($_GET['page']) && $_GET['page'] == 'thunk_started' ) || ((!$plugin_pro_exists && !$plugin_companion_exists) ||($plugin_pro_exists && !$plugin_pro_installed) || (!$plugin_pro_exists && $plugin_companion_exists && !$plugin_companion_installed) || (!$one_click_demo_import_installed || !$plugin_companion_installed) ) ) {
+ if ((isset($_GET['page']) && $_GET['page'] == 'thunk_started' ) || ((!$plugin_pro_exists && !$plugin_companion_exists) ||($plugin_pro_exists && !$plugin_pro_installed) || (!$plugin_pro_exists && $plugin_companion_exists && !$plugin_companion_installed)) ) {
     if ($plugin_pro_exists) {
         if ($plugin_pro_installed) {
             // Plugin is activated
@@ -129,7 +124,7 @@ foreach ($plugin_data as $plugin_slug => $plugin_info) {
             <div class="left">
                   <h2 class="title">
                      '.sprintf( esc_html__( 'Thank you for installing %1$s - Version %2$s', 'big-store' ), esc_html( $theme_data->Name ), esc_html( $theme_data->Version ) ).'</h2>
-                    <p>' . esc_html__('To take full advantage of all the features this theme has to offer, please install and activate the ', 'big-store') . '<strong>ThemeHunk Customizer & One Click Demo Import</strong></p>';
+                    <p>' . esc_html__('To take full advantage of all the features this theme has to offer, please install and activate the ', 'big-store') . '<strong>ThemeHunk Customizer</strong></p>';
 
         if ($all_installed) {
             if ($all_activated) {
@@ -192,7 +187,7 @@ function big_store_install_and_activate_callback() {
     if ($plugin_slug == 'big-store-pro') {
         $pluginArray = array('big-store-pro');
     } else {
-        $pluginArray = array('themehunk-customizer', 'one-click-demo-import');
+        $pluginArray = array('themehunk-customizer');
     }
 
     foreach ($pluginArray as $slug) {
@@ -252,7 +247,7 @@ function big_store_admin_script($hook_suffix) {
     wp_localize_script('big-store-notifyjs', 'theme_data', array(
         'ajax_url' => admin_url('admin-ajax.php'),
         'security' => wp_create_nonce('thactivatenonce'), // Create nonce for security
-        'redirectUrl' => esc_url(admin_url('themes.php?page=one-click-demo-import')), 
+        'redirectUrl' => esc_url(admin_url('themes.php?page=themehunk-site-library&template=step')), 
         'redirectUrlPro' => esc_url(admin_url('themes.php?page=themehunk-site-library'))
     ));
 }
