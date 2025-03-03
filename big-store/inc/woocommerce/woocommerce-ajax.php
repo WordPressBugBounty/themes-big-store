@@ -9,6 +9,8 @@ add_action('wp_ajax_big_store_product_remove', 'big_store_product_remove');
 add_action('wp_ajax_nopriv_big_store_product_remove', 'big_store_product_remove');
 function  big_store_product_remove()
 {
+  check_ajax_referer('bigstore_nonce', 'nonce'); // Security check
+
   global $woocommerce;
   $cart = $woocommerce->cart;
   foreach ($woocommerce->cart->get_cart() as $cart_item_key => $cart_item) {
@@ -24,6 +26,8 @@ function  big_store_product_remove()
 
 function big_store_product_count_update()
 {
+  check_ajax_referer('bigstore_nonce', 'nonce'); // Security check
+
   global $woocommerce;
 ?>
   <span class="cart-content"><?php echo sprintf(_n('<span class="count-item">%d <span class="item">item</span></span>', '<span class="count-item">%d <span class="item">items</span></span>', WC()->cart->get_cart_contents_count(), 'big-store'), WC()->cart->get_cart_contents_count(), 'big-store'); ?><?php echo WC()->cart->get_cart_total(); ?></span>
@@ -40,6 +44,7 @@ add_action('wp_ajax_nopriv_big_store_product_count_update', 'big_store_product_c
  */
 function big_store_search_site()
 {
+  check_ajax_referer('bigstore_nonce', 'nonce'); // Security check
   // wp_send_json_success($_POST);
   // return;
   if (isset($_POST['match']) && $_POST['match'] != '') {

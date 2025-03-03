@@ -62,4 +62,6 @@ get_template_part('lib/notification/customizer-notification/thsm-custom-section'
 /******************************/
 // Plugin Activation
 /******************************/
+if (is_admin()) {
 get_template_part( 'lib/notification/notify');
+}

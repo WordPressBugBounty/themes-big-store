@@ -77,7 +77,8 @@ jQuery(document).ready(function($){
             url:bigstoreqv.ajaxurl,
 			data: {
 				action: 'alm_load_product_quick_view',
-				product_id: product_id
+				product_id: product_id,
+				nonce:bigstoreqv.qvnonce
 			},
 			dataType: 'html',
 			type: 'POST',

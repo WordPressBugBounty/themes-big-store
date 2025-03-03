@@ -318,7 +318,11 @@ if ( ! class_exists( 'Big_Store_Pro_Woocommerce_Ext' ) ) :
 			);
            wp_localize_script( 'big-store-woocommerce-js', 'bigstore',  $localize );	
            wp_enqueue_script('open-quick-view', BIG_STORE_THEME_URI.'inc/woocommerce/quick-view/js/quick-view.js', array( 'jquery' ), '', true );
-           wp_localize_script('open-quick-view', 'bigstoreqv', array('ajaxurl' => admin_url( 'admin-ajax.php' )));
+           wp_localize_script('open-quick-view', 'bigstoreqv', array(
+			'ajaxurl' => admin_url( 'admin-ajax.php' ),
+			'qvnonce'         => wp_create_nonce( 'bigstore_qvnonce' ),	
+			
+		));
           
 		   }
 		/**
@@ -387,6 +391,9 @@ if ( ! class_exists( 'Big_Store_Pro_Woocommerce_Ext' ) ) :
 		 * Quick view ajax
 		 */
 		function big_store_load_product_quick_view_ajax(){
+
+			check_ajax_referer('bigstore_qvnonce', 'nonce'); // Security check
+
 			if ( ! isset( $_REQUEST['product_id'] ) ){
 				die();
 			}

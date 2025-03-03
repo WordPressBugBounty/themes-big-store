@@ -244,6 +244,7 @@
         var data = {
           product_id: $product_id,
           action: "big_store_product_remove",
+          nonce:bigstore.bignonce
         };
         $.post(
           woocommerce_params.ajax_url, // The AJAX URL
@@ -252,6 +253,7 @@
             $(".open-quickcart-dropdown").html(response);
             var data = {
               action: "big_store_product_count_update",
+              nonce:bigstore.bignonce
             };
             $.post(
               woocommerce_params.ajax_url, // The AJAX URL
@@ -367,6 +369,7 @@
             action: "big_store_search_site",
             match: searchVal,
             cat: cat_,
+            nonce:bigstore.bignonce
           };
           //   return;
           clearTimeout(searchTimeout);

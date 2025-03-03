@@ -171,7 +171,14 @@ add_action('wp_ajax_big_store_install_and_activate_callback', 'big_store_install
 // Callback function to install and activate plugins
 function big_store_install_and_activate_callback() {
     // Check nonce for security
-    check_ajax_referer('thactivatenonce', 'security');
+    
+    if (!current_user_can('manage_options')) {
+        exit;
+    }
+
+    if ( ! isset( $_POST['security'] ) || ! wp_verify_nonce( $_POST['security'], 'thactivatenonce' ) ) {
+        exit;
+    }
 
     // Retrieve plugin slug from AJAX request
     $plugin_slug = isset($_POST['plugin_slug']) ? sanitize_text_field($_POST['plugin_slug']) : '';
