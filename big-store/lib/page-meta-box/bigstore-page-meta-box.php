@@ -17,35 +17,6 @@ if ( ! function_exists( 'big_store_admin_scripts' ) ) :
 endif;
 add_action( 'admin_enqueue_scripts', 'big_store_admin_scripts' );
 
-$prefix='big_store_';
-
-$meta_boxes = array(
-      array(
-        'id' => 'open-meta-box',
-        'title' => esc_html__('Dynamic Sidebar','big-store'),
-        'pages' => array('page','post','product'),// custom post type array('page','post', 'link')
-        'context' => 'side',
-        'priority' => 'low',
-        'fields' => array(
-            array(
-                'name' => esc_html__('Sidebar','big-store'),
-                'id' => $prefix . 'sidebar_dyn',
-                'type' => 'select',
-                'std' => 'right',
-                'options' => array( 
-                    array("value" => 'right',"name" => esc_html__('Right Sidebar','big-store')),
-                    array("value" => 'no-sidebar',"name" => esc_html__('No Sidebar','big-store')),
-                    array("value" => 'left',"name" =>  esc_html__('Left Sidebar','big-store')),
-                    
-                 )
-             ),
-              
-        )
-    )
-);
-foreach ($meta_boxes as $meta_box){
-    $my_box = new big_store_thMetaDataClass($meta_box);
-}
 
 class big_store_thMetaDataClass {
  
@@ -150,3 +121,36 @@ class big_store_thMetaDataClass {
         }
     }
 }
+
+function big_store_register_meta_boxes() {
+$prefix='big_store_';
+
+$meta_boxes = array(
+      array(
+        'id' => 'open-meta-box',
+        'title' => esc_html__('Dynamic Sidebar','big-store'),
+        'pages' => array('page','post','product'),// custom post type array('page','post', 'link')
+        'context' => 'side',
+        'priority' => 'low',
+        'fields' => array(
+            array(
+                'name' => esc_html__('Sidebar','big-store'),
+                'id' => $prefix . 'sidebar_dyn',
+                'type' => 'select',
+                'std' => 'right',
+                'options' => array( 
+                    array("value" => 'right',"name" => esc_html__('Right Sidebar','big-store')),
+                    array("value" => 'no-sidebar',"name" => esc_html__('No Sidebar','big-store')),
+                    array("value" => 'left',"name" =>  esc_html__('Left Sidebar','big-store')),
+                    
+                 )
+             ),
+              
+        )
+    )
+);
+foreach ($meta_boxes as $meta_box){
+    $my_box = new big_store_thMetaDataClass($meta_box);
+}
+}
+add_action( 'init', 'big_store_register_meta_boxes' );
