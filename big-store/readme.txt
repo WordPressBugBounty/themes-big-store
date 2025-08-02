@@ -3,13 +3,13 @@ Contributors: ThemeHunk
 Tags: wide-blocks, block-patterns, block-styles, editor-style, e-commerce, blog, block-patterns, grid-layout, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-logo, custom-menu, add_editor_style, featured-image-header, featured-images, footer-widgets, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready.
 Requires PHP: 5.5
 Tested up to: 6.8
-Stable tag: 2.1.0
+Stable tag: 2.1.1
 License: GPLv3 or later
 License URL: https://www.gnu.org/licenses/gpl-3.0.en.html
 
 
 == Description ==
-Big Store is an eCommerce WordPress theme specially made for shopping websites. You can create any type of online store website using it. Theme is best suited for Fashion & Clothing store, furniture, grocery, clothing, electronic, gadget store and decorative gifts stores. Theme option panel is so easy to use and theme is also fully responsive to each & every device like Mobile, ipads etc. Some theme features are Tabbed product carousel, Woo Category layouts, Header & Footer combinations, quick view, translation ready, Ajax search, shop with category, Top slider layouts, Product Filter, Product styles, Color & Background options etc. Theme is deeply integrated with WooCommerce plugin to sell your products online.  See demo here: https://themehunk.com/big-store-ecommerce-wordpress-theme/
+Big Store is an eCommerce WordPress theme specially made for shopping websites. You can create any type of online store website using it. Theme is best suited for Fashion & Clothing store, furniture, grocery, clothing, electronic, gadget store and decorative gifts stores. Theme option panel is so easy to use and theme is also fully responsive to each & every device like Mobile, ipads etc. Some theme features are Tabbed product carousel, Woo Category layouts, Header & Footer combinations, quick view, translation ready, Ajax search, shop with category, Top slider layouts, Product Filter, Product styles, Color & Background options etc. Theme is deeply integrated with WooCommerce plugin to sell your products online.  See demo here: https://wpthemes.themehunk.com/big-store-electro
 
 For more information about Theme https://www.themehunk.com
 
@@ -22,6 +22,12 @@ Yes our theme supports builder
 Yes, this theme is tested with latest version of WordPress, you can use it for your site.
 
 == Changelog ==
+
+= 2.1.1 =
+* Update: Theme tested with WooCommerce 9.8.5. & style of breadcrumb and mobile menu updated.
+* Update: Woocommerce checkout page .woocommerce-checkout .thunk-content-wrap {
+    display: -webkit-flex;
+}
 
 = 2.1.0 =
 * Update: _load_textdomain_just_in_time was called incorrectly issue resolved.
@@ -308,10 +314,9 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 Initial release
 
 == Upgrade Notice ==
-= 2.0.8 =
-* Update: Banner notification updated.
-* Update: Warning oneclick deo import undefine error removed.
-* Update Search Icon issue resolved
+
+= 2.1.1 =
+* Update: Theme tested with WooCommerce 9.8.5. & style of breadcrumb and mobile menu updated.
 
 == Resources ==
  
