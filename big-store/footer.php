@@ -8,28 +8,9 @@
  * @since 1.0.0
  */ 
 ?>
-<footer>
-         <?php 
-         
-          // top-footer 
-          do_action( 'big_store_top_footer' ); 
-
-          // widget-footer
-		      do_action( 'big_store_widget_footer' );
-
-		      // below-footer
-          if (function_exists( 'big_store_pro_load_plugin' ) ){
-
-            do_action( 'big_store_below_footer' );  
-
-          }else{
-
-            do_action('big_store_shop_default_bottom_footer'); 
-
-          }
-  
-        ?>
-     </footer> <!-- end footer -->
+<?php do_action( 'big_store_before_footer' ); ?>
+     <?php do_action( 'big_store_footer' ); ?>
+     <?php do_action( 'big_store_after_footer' ); ?>
     </div> <!-- end bigstore-site -->
 <?php wp_footer(); ?>
 </body>

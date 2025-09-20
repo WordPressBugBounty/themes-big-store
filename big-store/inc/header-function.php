@@ -596,11 +596,7 @@ function big_store_header_icon()
 
       <?php }
       big_store_account();
-      if(class_exists('WPCleverWoosw')){ ?>
-        <a class="whishlist" href="<?php echo esc_url(WPcleverWoosw::get_url()); ?>">
-        <span class="th-icon th-icon-heartline"></span></a>
-      <?php }
-      if (class_exists('YITH_WCWL') && (!class_exists('WPCleverWoosw'))) { ?>
+      if ( class_exists( 'THWL_Wishlist' ) || defined( 'YITH_WCWL_SLUG' ) ) { ?>
         <a class="whishlist" href="<?php echo esc_url(big_store_whishlist_url()); ?>">
         <span class="th-icon th-icon-heartline"></span></a></a>
       <?php }
@@ -698,11 +694,7 @@ if (!function_exists('big_store_sticky_header_markup')) {
               
         }?></span></a>
                 <?php
-                if (class_exists('WPCleverWoosw')) {
-                ?>
-                  <a class="whishlist" href="<?php echo esc_url(WPcleverWoosw::get_url()); ?>"><span class="th-icon th-icon-heartline"></span></a>
-                <?php }
-                if (class_exists('YITH_WCWL') && (!class_exists('WPCleverWoosw'))) {
+                if ( class_exists( 'THWL_Wishlist' ) || defined( 'YITH_WCWL_SLUG' ) ) {
                 ?>
                   <a class="whishlist" href="<?php echo esc_url(big_store_whishlist_url()); ?>"><span class="th-icon th-icon-heartline"></span></a>
                 <?php }
@@ -752,7 +744,7 @@ function bigstore_mobile_navbar()
         if (class_exists('WPCleverWoosw')) { ?>
           <li><a class="whishlist" href="<?php echo esc_url(WPcleverWoosw::get_url()); ?>"><span class="th-icon th-icon-heartline"></span></a></li>
         <?php }
-        if (class_exists('YITH_WCWL') && (!class_exists('WPCleverWoosw'))) { ?>
+        if ( class_exists( 'THWL_Wishlist' ) || defined( 'YITH_WCWL_SLUG' ) ) { ?>
           <li><a class="whishlist" href="<?php echo esc_url(big_store_whishlist_url()); ?>"><span class="th-icon th-icon-heartline"></span></a></li>
         <?php } ?>
         <li>

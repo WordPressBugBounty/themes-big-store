@@ -25,65 +25,8 @@
 </head>
 <body <?php body_class();?>>
 	<?php wp_body_open();?>	
-<?php 
-$classes = '';
-if(is_page_template( 'page-contact.php' ) || is_page_template( 'page-faq.php' ) ||is_page_template( 'page-aboutus.php' )||is_page_template( 'frontpage.php' )){
-$classes = 'no-sidebar';
-}
-elseif(!is_404() && !is_search() && is_page()){ 
-	$page_post_meta_sidebar = get_post_meta(get_the_ID(), 'big_store_sidebar_dyn', true );
-		if ($page_post_meta_sidebar=='on'){
-			$classes = 'no-sidebar';
-		}
-}elseif(is_single() && (class_exists( 'WooCommerce' ) && !is_product())){
-	    $page_post_meta_sidebar = get_post_meta(get_the_ID(), 'big_store_sidebar_dyn', true );
-	    if(get_theme_mod('big_store_blog_single_sidebar_disable')==true){
-	     	$classes = 'no-sidebar';
-	      }else{
-	      	if ($page_post_meta_sidebar=='on'){
-			$classes = 'no-sidebar';
-		     }
-	     }
-	     
-}elseif(big_store_is_blog()){
-	    $blog_page_id = get_option( 'page_for_posts' );
-        $page_post_meta_sidebar = get_post_meta( $blog_page_id, 'big_store_sidebar_dyn', true );
-		if ($page_post_meta_sidebar=='on'){
-			$classes = 'no-sidebar';
-		}
-}elseif(class_exists( 'WooCommerce' ) && is_shop()){
-	    $shop_page_id = get_option( 'woocommerce_shop_page_id' );
-        $page_post_meta_sidebar = get_post_meta( $shop_page_id, 'big_store_sidebar_dyn', true );
-		if ($page_post_meta_sidebar=='on'){
-			$classes = 'no-sidebar';
-		}
-}elseif(class_exists( 'WooCommerce' ) && is_product()){
-	    $page_post_meta_sidebar = get_post_meta(get_the_ID(), 'big_store_sidebar_dyn', true );
-	    if(get_theme_mod('big_store_product_single_sidebar_disable')==true){
-	     	$classes = 'no-sidebar';
-	      }else{
-		 if ($page_post_meta_sidebar=='on'){
-			$classes = 'no-sidebar';
-		 }
-	}
-}
-?>
 <?php do_action('big_store_site_preloader'); ?>
-<div id="page" class="bigstore-site  <?php echo esc_attr($classes);?>">
-	<header>
-		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'big-store' ); ?></a>
-		<?php do_action( 'big_store_sticky_header' ); ?> 
-        <!-- sticky header -->
-		<?php if(get_theme_mod('big_store_above_mobile_disable')==true){
-			if (wp_is_mobile()!== true):
-             do_action( 'big_store_top_header' );  
-            endif;
-		}elseif(get_theme_mod('big_store_above_mobile_disable',false)==false){
-			 do_action( 'big_store_top_header' );  
-		} ?> 
-		<!-- end top-header -->
-        <?php do_action( 'big_store_main_header' ); ?> 
-		<!-- end main-header -->
-		<?php do_action( 'big_store_below_header' );?> 
-		<!-- end below-header -->
-	</header> <!-- end header -->
+<div id="page" class="bigstore-site <?php echo function_exists( 'big_store_get_page_classes' ) ? big_store_get_page_classes() : ''; ?>">
+	<?php do_action( 'big_store_before_header' ); ?>
+	<?php do_action( 'big_store_header' ); ?>
+	<?php do_action( 'big_store_after_header' ); ?>

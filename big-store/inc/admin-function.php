@@ -564,7 +564,7 @@ $classes[] = 'woocommerce';
 endif;
 $big_store_color_scheme = get_theme_mod( 'big_store_color_scheme','opn-light' );
         
-          if( shortcode_exists( 'yith_wcwl_add_to_wishlist' ) ){
+         if( shortcode_exists( 'th_compare' ) || shortcode_exists( 'yith_wcwl_add_to_wishlist' ) ){
                  $classes[] = 'big-store-wishlist-activate';
          } 
 
@@ -577,3 +577,103 @@ function big_store_attachment_display_settings() {
     update_option( 'image_default_size', 'large' );
 }
 add_action( 'after_setup_theme', 'big_store_attachment_display_settings' );
+
+if ( !function_exists('big_store_get_page_classes')) {
+function big_store_get_page_classes() {
+   $classes = '';
+if(is_page_template( 'page-contact.php' ) || is_page_template( 'page-faq.php' ) ||is_page_template( 'page-aboutus.php' )||is_page_template( 'frontpage.php' )){
+$classes = 'no-sidebar';
+}
+elseif(!is_404() && !is_search() && is_page()){ 
+  $page_post_meta_sidebar = get_post_meta(get_the_ID(), 'big_store_sidebar_dyn', true );
+    if ($page_post_meta_sidebar=='on'){
+      $classes = 'no-sidebar';
+    }
+}elseif(is_single() && (class_exists( 'WooCommerce' ) && !is_product())){
+      $page_post_meta_sidebar = get_post_meta(get_the_ID(), 'big_store_sidebar_dyn', true );
+      if(get_theme_mod('big_store_blog_single_sidebar_disable')==true){
+        $classes = 'no-sidebar';
+        }else{
+          if ($page_post_meta_sidebar=='on'){
+      $classes = 'no-sidebar';
+         }
+       }
+       
+}elseif(big_store_is_blog()){
+      $blog_page_id = get_option( 'page_for_posts' );
+        $page_post_meta_sidebar = get_post_meta( $blog_page_id, 'big_store_sidebar_dyn', true );
+    if ($page_post_meta_sidebar=='on'){
+      $classes = 'no-sidebar';
+    }
+}elseif(class_exists( 'WooCommerce' ) && is_shop()){
+      $shop_page_id = get_option( 'woocommerce_shop_page_id' );
+        $page_post_meta_sidebar = get_post_meta( $shop_page_id, 'big_store_sidebar_dyn', true );
+    if ($page_post_meta_sidebar=='on'){
+      $classes = 'no-sidebar';
+    }
+}elseif(class_exists( 'WooCommerce' ) && is_product()){
+      $page_post_meta_sidebar = get_post_meta(get_the_ID(), 'big_store_sidebar_dyn', true );
+      if(get_theme_mod('big_store_product_single_sidebar_disable')==true){
+        $classes = 'no-sidebar';
+        }else{
+     if ($page_post_meta_sidebar=='on'){
+      $classes = 'no-sidebar';
+     }
+  }
+}
+
+    return esc_attr($classes);
+}
+}
+if ( !function_exists('big_store_full_header_markup') ) {
+function big_store_full_header_markup() { ?>
+  <header class="big-store-header">
+    <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'big-store' ); ?></a>
+    <?php do_action( 'big_store_sticky_header' ); ?> 
+        <!-- sticky header -->
+    <?php if(get_theme_mod('big_store_above_mobile_disable')==true){
+      if (wp_is_mobile()!== true):
+             do_action( 'big_store_top_header' );  
+            endif;
+    }elseif(get_theme_mod('big_store_above_mobile_disable',false)==false){
+       do_action( 'big_store_top_header' );  
+    } ?> 
+    <!-- end top-header -->
+        <?php do_action( 'big_store_main_header' ); ?> 
+    <!-- end main-header -->
+    <?php do_action( 'big_store_below_header' );?> 
+    <!-- end below-header -->
+  </header> <!-- end header -->
+<?php }
+add_action('big_store_header', 'big_store_full_header_markup');
+}
+
+if ( !function_exists('big_store_full_footer_markup') ) {
+function big_store_full_footer_markup() { ?>
+      <footer class="big-store-footer">
+         <?php 
+         
+          // top-footer 
+          do_action( 'big_store_top_footer' ); 
+
+          // widget-footer
+          do_action( 'big_store_widget_footer' );
+
+          // below-footer
+          if (function_exists( 'big_store_pro_load_plugin' ) ){
+
+            do_action( 'big_store_below_footer' );  
+
+          }else{
+
+            do_action('big_store_shop_default_bottom_footer'); 
+
+          }
+  
+        ?>
+     </footer> <!-- end footer -->
+    <?php }
+
+// Hook the custom footer function into 'zita_footer'
+add_action('big_store_footer', 'big_store_full_footer_markup');
+}

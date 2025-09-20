@@ -5,63 +5,58 @@
  * @param  
  * @return mixed|string
  */
-get_template_part( 'inc/admin-function');
-get_template_part( 'inc/header-function');
-get_template_part( 'inc/footer-function');
-get_template_part( 'inc/blog-function');
+require_once BIG_STORE_THEME_DIR. 'inc/admin-function.php';
+require_once BIG_STORE_THEME_DIR. 'inc/header-function.php';
+require_once BIG_STORE_THEME_DIR. 'inc/footer-function.php';
+require_once BIG_STORE_THEME_DIR. 'inc/blog-function.php';
 // theme-option
 include_once(ABSPATH.'wp-admin/includes/plugin.php');
 if ( !is_plugin_active('big-store-pro/big-store-pro.php') ) {
-  get_template_part( 'lib/th-option/th-option');
+  require_once BIG_STORE_THEME_DIR. 'lib/th-option/th-option.php';
 }
 //breadcrumbs
-get_template_part( 'lib/breadcrumbs/breadcrumbs');
+require_once BIG_STORE_THEME_DIR. 'lib/breadcrumbs/breadcrumbs.php';
 //page-post-meta
-get_template_part( 'lib/page-meta-box/bigstore-page-meta-box');
+require_once BIG_STORE_THEME_DIR. 'lib/page-meta-box/bigstore-page-meta-box.php';
 //custom-style
-get_template_part( 'inc/big-store-custom-style');
-
-//pagination
-get_template_part( 'inc/pagination/pagination');
-get_template_part( 'inc/pagination/infinite-scroll');
+require_once BIG_STORE_THEME_DIR. 'inc/big-store-custom-style.php';
 
 // customizer
-get_template_part('customizer/models/class-big-store-singleton');
-get_template_part('customizer/models/class-big-store-defaults-models');
-get_template_part('customizer/repeater/class-big-store-repeater');
-get_template_part('customizer/extend-customizer/class-big-store-wp-customize-panel');
-get_template_part('customizer/extend-customizer/class-big-store-wp-customize-section');
-get_template_part('customizer/customizer-radio-image/class/class-big-store-customize-control-radio-image');
-get_template_part('customizer/customizer-range-value/class/class-big-store-customizer-range-value-control');
-get_template_part('customizer/customizer-scroll/class/class-big-store-customize-control-scroll');
-get_template_part('customizer/customize-focus-section/big-store-focus-section');
-get_template_part('customizer/color/class-control-color');
-get_template_part('customizer/customize-buttonset/class-control-buttonset');
-get_template_part('customizer/sortable/class-open-control-sortable');
-get_template_part('customizer/background/class-big-store-background-image-control');
-get_template_part('customizer/customizer-tabs/class-big-store-customize-control-tabs');
-get_template_part('customizer/customizer-toggle/class-big-store-toggle-control');
+require_once BIG_STORE_THEME_DIR.'customizer/models/class-big-store-singleton.php';
+require_once BIG_STORE_THEME_DIR.'customizer/models/class-big-store-defaults-models.php';
+require_once BIG_STORE_THEME_DIR.'customizer/repeater/class-big-store-repeater.php';
+require_once BIG_STORE_THEME_DIR.'customizer/extend-customizer/class-big-store-wp-customize-panel.php';
+require_once BIG_STORE_THEME_DIR.'customizer/extend-customizer/class-big-store-wp-customize-section.php';
+require_once BIG_STORE_THEME_DIR.'customizer/customizer-radio-image/class/class-big-store-customize-control-radio-image.php';
+require_once BIG_STORE_THEME_DIR.'customizer/customizer-range-value/class/class-big-store-customizer-range-value-control.php';
+require_once BIG_STORE_THEME_DIR.'customizer/customizer-scroll/class/class-big-store-customize-control-scroll.php';
+require_once BIG_STORE_THEME_DIR.'customizer/customize-focus-section/big-store-focus-section.php';
+require_once BIG_STORE_THEME_DIR.'customizer/color/class-control-color.php';
+require_once BIG_STORE_THEME_DIR.'customizer/customize-buttonset/class-control-buttonset.php';
+require_once BIG_STORE_THEME_DIR.'customizer/background/class-big-store-background-image-control.php';
+require_once BIG_STORE_THEME_DIR.'customizer/customizer-tabs/class-big-store-customize-control-tabs.php';
+require_once BIG_STORE_THEME_DIR.'customizer/customizer-toggle/class-big-store-toggle-control.php';
 
-get_template_part('customizer/custom-customizer');
-get_template_part('customizer/customizer-constant');
-get_template_part('customizer/customizer');
+require_once BIG_STORE_THEME_DIR.'customizer/custom-customizer.php';
+require_once BIG_STORE_THEME_DIR.'customizer/customizer-constant.php';
+require_once BIG_STORE_THEME_DIR.'customizer/customizer.php';
 /******************************/
 // woocommerce
 /******************************/
-get_template_part( 'inc/woocommerce/woo-core');
-get_template_part( 'inc/woocommerce/woo-function');
-get_template_part('inc/woocommerce/woocommerce-ajax');
+require_once BIG_STORE_THEME_DIR. 'inc/woocommerce/woo-core.php';
+require_once BIG_STORE_THEME_DIR. 'inc/woocommerce/woo-function.php';
+require_once BIG_STORE_THEME_DIR.'inc/woocommerce/woocommerce-ajax.php';
 
 /******************************/
 // Probutton
 /******************************/
-get_template_part('customizer/pro-button/class-customize');
-get_template_part( 'inc/footer');
+require_once BIG_STORE_THEME_DIR.'customizer/pro-button/class-customize.php';
+require_once BIG_STORE_THEME_DIR. 'inc/footer.php';
 
-get_template_part('lib/notification/customizer-notification/thsm-custom-section');
+require_once BIG_STORE_THEME_DIR.'lib/notification/customizer-notification/thsm-custom-section.php';
 /******************************/
 // Plugin Activation
 /******************************/
 if (is_admin()) {
-get_template_part( 'lib/notification/notify');
+require_once BIG_STORE_THEME_DIR. 'lib/notification/notify.php';
 }

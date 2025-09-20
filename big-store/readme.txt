@@ -3,7 +3,7 @@ Contributors: ThemeHunk
 Tags: wide-blocks, block-patterns, block-styles, editor-style, e-commerce, blog, block-patterns, grid-layout, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-logo, custom-menu, add_editor_style, featured-image-header, featured-images, footer-widgets, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready.
 Requires PHP: 5.5
 Tested up to: 6.8
-Stable tag: 2.1.1
+Stable tag: 2.1.2
 License: GPLv3 or later
 License URL: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -23,11 +23,28 @@ Yes, this theme is tested with latest version of WordPress, you can use it for y
 
 == Changelog ==
 
+= 2.1.2 =
+* Update:
+1. TH WISHLIST INETEGRATED.
+2. Style Improved
+3. Tested with latest PHP 8.3 / 8.4.
+4. Tested with wordpress 6.8.
+5. No open code present (__load_text_domain error)
+6. TH Wishlist added in Option Panel.
+7. Hooks added at after & before of haeder and footer also class added in these tags.
+8. Product layouts style issue resolved.
+9. Update: Header implementation through hooks using do_action( 'big_store_header' );
+10. Update: Footer implementation through hooks using do_action( 'big_store_footer' );
+11. Update: Absolute path in th-icon issue resolved.
+12. th-icon fonts included through to remove Absolute path error.
+13. get_template_parts removed from init.php
+
 = 2.1.1 =
 * Update: Theme tested with WooCommerce 9.8.5. & style of breadcrumb and mobile menu updated.
 * Update: Woocommerce checkout page .woocommerce-checkout .thunk-content-wrap {
     display: -webkit-flex;
 }
+* Update: Header Footer added.
 
 = 2.1.0 =
 * Update: _load_textdomain_just_in_time was called incorrectly issue resolved.

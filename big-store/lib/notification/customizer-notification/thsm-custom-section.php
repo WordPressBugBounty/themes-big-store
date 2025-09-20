@@ -100,4 +100,4 @@ function big_store_customize_install_register($wp_customize) {
 }
 add_action('customize_register', 'big_store_customize_install_register');
 
-get_template_part( 'lib/notification/customizer-notification/customizer-install');
+require_once BIG_STORE_THEME_DIR.'lib/notification/customizer-notification/customizer-install.php';

@@ -11,7 +11,7 @@
  * Theme functions and definitions
  */
 if ( ! function_exists( 'big_store_setup' ) ) :
-define( 'BIG_STORE_THEME_VERSION','2.1.1');
+define( 'BIG_STORE_THEME_VERSION','2.1.2');
 define( 'BIG_STORE_THEME_DIR', get_template_directory() . '/' );
 define( 'BIG_STORE_THEME_URI', get_template_directory_uri() . '/' );
 define( 'BIG_STORE_THEME_SETTINGS', 'big-store-settings' );
@@ -134,6 +134,11 @@ define( 'BIG_STORE_THEME_SETTINGS', 'big-store-settings' );
                   'img' => 'icon-128x128.gif',
                  'active_filename' => 'th-product-compare/th-product-compare.php',
              ),
+             'th-wishlist' => array(
+				'name' => esc_html__( 'TH Wishlist for WooCommerce', 'big-store' ),
+				'img' => 'icon-128x128.gif',
+				'active_filename' => 'th-wishlist/th-wishlist.php',
+				),
             'lead-form-builder' => array(
                 'name' => esc_html__( 'Lead Form Builder', 'big-store' ),
                  'img' => 'icon-128x128.png',
@@ -320,6 +325,7 @@ function big_store_scripts(){
 	}	
 	wp_enqueue_style( 'big-store-style', get_stylesheet_uri(), array(), BIG_STORE_THEME_VERSION );
 	wp_add_inline_style('big-store-style', big_store_custom_style());
+	wp_add_inline_style('big-store-style', '@font-face{font-family:"th-icon";src:url("' . esc_url(get_template_directory_uri() . '/third-party/fonts/th-icon/fonts/th-icon.ttf?k3xn19') . '") format("truetype");font-weight:normal;font-style:normal;font-display:block;}');
 	
     //enqueue js
     
