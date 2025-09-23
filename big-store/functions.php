@@ -11,7 +11,7 @@
  * Theme functions and definitions
  */
 if ( ! function_exists( 'big_store_setup' ) ) :
-define( 'BIG_STORE_THEME_VERSION','2.1.2');
+define( 'BIG_STORE_THEME_VERSION','2.1.3');
 define( 'BIG_STORE_THEME_DIR', get_template_directory() . '/' );
 define( 'BIG_STORE_THEME_URI', get_template_directory_uri() . '/' );
 define( 'BIG_STORE_THEME_SETTINGS', 'big-store-settings' );

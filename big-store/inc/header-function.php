@@ -7,6 +7,17 @@
  * @copyright   Copyright (c) 2019, big store
  * @since       big store 1.0.0
  */
+if (is_child_theme()) {
+    $theme = wp_get_theme();
+    $child_theme_version = $theme->get('Version');
+    
+    if (get_stylesheet() === 'th-store') { 
+        // For 'top-x' theme, check version and apply your condition
+        if ($child_theme_version == '1.0.0' || $child_theme_version == '1.0.1' || $child_theme_version == '1.0.2' || $child_theme_version == '1.0.3') {
+            return;
+        }
+    } 
+} 
 /**************************************/
 //Top Header function
 /**************************************/
@@ -486,6 +497,8 @@ if (!function_exists('big_store_main_header_markup')) {
 }
 add_action('big_store_main_header', 'big_store_main_header_markup');
 
+if ( !function_exists('big_store_main_header_optn')) {
+
 function big_store_main_header_optn()
 {
   $main_header_layout = get_theme_mod('big_store_main_header_layout', 'mhdrthree');
@@ -544,6 +557,7 @@ function big_store_main_header_optn()
     <?php } ?>
   </div>
   <?php }
+}
 /**************************************/
 //logo & site title function
 /**************************************/
@@ -576,6 +590,7 @@ if (!function_exists('big_store_logo')) {
 /**********************************/
 // header icon function
 /**********************************/
+if ( !function_exists('big_store_header_icon')) {
 function big_store_header_icon()
 {
   if (class_exists('WooCommerce')) {
@@ -605,6 +620,7 @@ function big_store_header_icon()
       ?>
     </div>
     <?php }
+}
 }
 
 /**************************/
@@ -732,7 +748,7 @@ endif;
 /*****************/
 /*mobile nav bar*/
 /*****************/
-
+if ( !function_exists('bigstore_mobile_navbar')) {
 function bigstore_mobile_navbar()
 { ?>
   <?php if (class_exists('WooCommerce')) { ?>
@@ -774,7 +790,8 @@ function bigstore_mobile_navbar()
   <?php }
 }
 add_action('wp_footer', 'bigstore_mobile_navbar');
-
+}
+if (!function_exists('big_store_cart_mobile_panel')) {
 /// mobile panel
 function big_store_cart_mobile_panel()
 {
@@ -847,10 +864,12 @@ function big_store_cart_mobile_panel()
 <?php
 }
 add_action('big_store_below_header', 'big_store_cart_mobile_panel');
+}
 
 //********************************//
 //th advance product search 
 //*******************************//
+if (!function_exists('big_store_th_advance_product_search')) {
 function big_store_th_advance_product_search(){
 
               if ( shortcode_exists('th-aps') ){
@@ -882,11 +901,12 @@ function big_store_th_advance_product_search(){
 
             }
 }
+}
 
 //********************************//
 //th woo cart 
 //*******************************//
-
+if (!function_exists('big_store_th_cart')) {
 function big_store_th_cart(){
 
   if ( shortcode_exists('taiowc') ){
@@ -917,4 +937,5 @@ function big_store_th_cart(){
                 <?php      
 
             }
+}
 }

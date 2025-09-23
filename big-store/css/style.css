@@ -8609,6 +8609,9 @@ html[dir="rtl"] .woocommerce-product-gallery{
 .thunk-wishlist  .thw-add-to-wishlist-button.no-style .thw-icon{
   font-size: .9rem;
 }
+html[dir="rtl"] .woocommerce-Price-bidi {
+         unicode-bidi: normal !important;
+}
 @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
   .thunk-slide .owl-stage-outer {
     padding: 0;

@@ -9606,6 +9606,9 @@ html[dir="rtl"] .thunk-single-product-summary-wrap{
     align-items: flex-start;
 overflow: initial;
 }
+html[dir="rtl"] .woocommerce-Price-bidi {
+         unicode-bidi: normal !important;
+}
 /*** tooltip  */
 @media screen and (max-width: 360px) {
   /* th all in one woo cart */

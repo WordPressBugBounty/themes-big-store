@@ -7,6 +7,17 @@
  * @copyright   Copyright (c) 2019, big store
  * @since       big store 1.0.0
  */
+if (is_child_theme()) {
+    $theme = wp_get_theme();
+    $child_theme_version = $theme->get('Version');
+    
+    if (get_stylesheet() === 'th-store') {
+        // For 'top-x' theme, check version and apply your condition
+        if ($child_theme_version == '1.0.0' || $child_theme_version == '1.0.1' || $child_theme_version == '1.0.2' || $child_theme_version == '1.0.3') {
+             return;
+        }
+    }  
+}
 /**************************************/
 //Top footer function
 /**************************************/
