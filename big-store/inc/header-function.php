@@ -91,9 +91,7 @@ if (!function_exists('big_store_top_header_conetnt_col1')) {
           <div class="menu-toggle">
             <button type="button" class="menu-btn" id="menu-btn-abv">
               <div class="btn">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-text-align-justify w-5 h-5 text-gray-500 group-hover:text-gray-700" aria-hidden="true"><path d="M3 5h18"></path><path d="M3 12h18"></path><path d="M3 19h18"></path></svg>
               </div>
             </button>
           </div>
@@ -141,9 +139,7 @@ if (!function_exists('big_store_top_header_conetnt_col2')) {
           <div class="menu-toggle">
             <button type="button" class="menu-btn" id="menu-btn-abv">
               <div class="btn">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-text-align-justify w-5 h-5 text-gray-500 group-hover:text-gray-700" aria-hidden="true"><path d="M3 5h18"></path><path d="M3 12h18"></path><path d="M3 19h18"></path></svg>
               </div>
             </button>
           </div>
@@ -191,9 +187,7 @@ if (!function_exists('big_store_top_header_conetnt_col3')) {
           <div class="menu-toggle">
             <button type="button" class="menu-btn" id="menu-btn-abv">
               <div class="btn">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-text-align-justify w-5 h-5 text-gray-500 group-hover:text-gray-700" aria-hidden="true"><path d="M3 5h18"></path><path d="M3 12h18"></path><path d="M3 19h18"></path></svg>
               </div>
             </button>
           </div>
@@ -243,9 +237,11 @@ if (!function_exists('big_store_below_header_markup')) {
                   <div class="toggle-cat-wrap">
                     <p class="cat-toggle">
                       <span class="cat-icon">
-                        <span class="cat-top"></span>
-                        <span class="cat-top"></span>
-                        <span class="cat-bot"></span>
+                        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle;">
+  <path d="M5 7h14"></path>
+  <path d="M5 12h9"></path>
+  <path d="M5 17h11"></path>
+</svg>
                       </span>
                       <span class="toggle-title">
                         <?php echo esc_html(get_theme_mod('big_store_main_hdr_cat_txt', 'Category')); ?>
@@ -266,9 +262,7 @@ if (!function_exists('big_store_below_header_markup')) {
                   <div class="menu-toggle">
                     <button type="button" class="menu-btn" id="menu-btn">
                       <div class="btn">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-text-align-justify w-5 h-5 text-gray-500 group-hover:text-gray-700" aria-hidden="true"><path d="M3 5h18"></path><path d="M3 12h18"></path><path d="M3 19h18"></path></svg>
                       </div>
                     </button>
                   </div>
@@ -372,9 +366,7 @@ if (!function_exists('big_store_main_header_markup')) {
                   <div class="menu-toggle">
                     <button type="button" class="menu-btn" id="menu-btn">
                       <div class="btn">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-text-align-justify w-5 h-5 text-gray-500 group-hover:text-gray-700" aria-hidden="true"><path d="M3 5h18"></path><path d="M3 12h18"></path><path d="M3 19h18"></path></svg>
                       </div>
                     </button>
                   </div>
@@ -433,9 +425,7 @@ if (!function_exists('big_store_main_header_markup')) {
                   <div class="menu-toggle">
                   <button type="button" class="menu-btn" id="menu-btn">
                     <div class="btn">
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-text-align-justify w-5 h-5 text-gray-500 group-hover:text-gray-700" aria-hidden="true"><path d="M3 5h18"></path><path d="M3 12h18"></path><path d="M3 19h18"></path></svg>
                     </div>
                   </button>
                 </div>
@@ -444,7 +434,7 @@ if (!function_exists('big_store_main_header_markup')) {
                   <div class="header-support-icon">
                     <?php if( class_exists( 'WooCommerce' ) &&get_theme_mod('big_store_whislist_mobile_disable',false) != true){ ?>
                       <a class="whishlist" href="<?php echo esc_url(big_store_whishlist_url()); ?>">
-                        <span class="th-icon th-icon-heartline"></span><span><?php _e('Wishlist', 'big-store'); ?></span></a>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart w-6 h-6 stroke-[1.5px]" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"></path></svg><span><?php _e('Wishlist', 'big-store'); ?></span></a>
                     <?php } ?>
 
                     <?php if(class_exists( 'WooCommerce' ) && get_theme_mod('big_store_account_mobile_disable',false) != true){
@@ -613,7 +603,7 @@ function big_store_header_icon()
       big_store_account();
       if ( class_exists( 'THWL_Wishlist' ) || defined( 'YITH_WCWL_SLUG' ) ) { ?>
         <a class="whishlist" href="<?php echo esc_url(big_store_whishlist_url()); ?>">
-        <span class="th-icon th-icon-heartline"></span></a></a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart w-6 h-6 stroke-[1.5px]" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"></path></svg></a></a>
       <?php }
 
 
@@ -670,9 +660,7 @@ if (!function_exists('big_store_sticky_header_markup')) {
               <div class="menu-toggle">
                 <button type="button" class="menu-btn" id="menu-btn-stk">
                   <div class="btn">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-text-align-justify w-5 h-5 text-gray-500 group-hover:text-gray-700" aria-hidden="true"><path d="M3 5h18"></path><path d="M3 12h18"></path><path d="M3 19h18"></path></svg>
                   </div>
                 </button>
               </div>
@@ -712,7 +700,7 @@ if (!function_exists('big_store_sticky_header_markup')) {
                 <?php
                 if ( class_exists( 'THWL_Wishlist' ) || defined( 'YITH_WCWL_SLUG' ) ) {
                 ?>
-                  <a class="whishlist" href="<?php echo esc_url(big_store_whishlist_url()); ?>"><span class="th-icon th-icon-heartline"></span></a>
+                  <a class="whishlist" href="<?php echo esc_url(big_store_whishlist_url()); ?>"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart w-6 h-6 stroke-[1.5px]" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"></path></svg></a>
                 <?php }
                 if (class_exists('WooCommerce')) {
                   big_store_account();
@@ -755,13 +743,22 @@ function bigstore_mobile_navbar()
     <div id="bigstore-mobile-bar">
       <ul>
 
-        <li><a class="gethome" href="<?php echo esc_url(get_home_url()); ?>"><span class="th-icon th-icon-home"></span></a></li>
+        <li><a class="gethome" href="<?php echo esc_url(get_home_url()); ?>"><svg xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     viewBox="0 0 24 24"
+     fill="none"
+     stroke="currentColor"
+     stroke-width="2"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     class="lucide lucide-home w-6 h-6 stroke-[1.5px]"
+     aria-hidden="true">
+  <path d="M3 10.5 12 3a1 1 0 0 1 0 0l9 7.5v8.5a2 2 0 0 1-2 2h-4v-7h-6v7H5a2 2 0 0 1-2-2z"></path>
+</svg></a></li>
         <?php
-        if (class_exists('WPCleverWoosw')) { ?>
-          <li><a class="whishlist" href="<?php echo esc_url(WPcleverWoosw::get_url()); ?>"><span class="th-icon th-icon-heartline"></span></a></li>
-        <?php }
         if ( class_exists( 'THWL_Wishlist' ) || defined( 'YITH_WCWL_SLUG' ) ) { ?>
-          <li><a class="whishlist" href="<?php echo esc_url(big_store_whishlist_url()); ?>"><span class="th-icon th-icon-heartline"></span></a></li>
+          <li><a class="whishlist" href="<?php echo esc_url(big_store_whishlist_url()); ?>"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart w-6 h-6 stroke-[1.5px]" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"></path></svg></a></li>
         <?php } ?>
         <li>
           <?php
@@ -774,9 +771,7 @@ function bigstore_mobile_navbar()
              <a href="#" class="menu-btn" id="mob-menu-btn">
 
             <div class="btn">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-text-align-justify w-5 h-5 text-gray-500 group-hover:text-gray-700" aria-hidden="true"><path d="M3 5h18"></path><path d="M3 12h18"></path><path d="M3 19h18"></path></svg>
                   </div>
             
           </a>
