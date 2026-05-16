@@ -4,35 +4,31 @@
 (function ($) {
     var wpmlRtl = $('html').attr('dir');
     var BigStoreLib = {
-        init: function (){ 
-            this.bindEvents();
-        },
-        bindEvents: function (){
-              
-             var $this = this;
-             $this.sticky_header();
-             $this.sticky_sidebar_hide_toggle();
-             $this.sticky_product_search();
-             $this.pre_loader();
-             $this.CatMenu();
-             $this.DefaultMenu();
-             $this.MainMenu();
-             $this.StickMenu();
-             $this.AboveMenu();
-             $this.MobileMenuFunction();
-             $this.mobile_menu_with_woocat();
-             $this.Top2Slider();
-             $this.TopMultiSlide();
-             $this.TopFullSlide();
+         init: function () {
+             BigStoreLib.sticky_header();
+             BigStoreLib.sticky_sidebar_hide_toggle();
+             BigStoreLib.sticky_product_search();
+             BigStoreLib.pre_loader();
+             BigStoreLib.CatMenu();
+             BigStoreLib.DefaultMenu();
+             BigStoreLib.MainMenu();
+             BigStoreLib.StickMenu();
+             BigStoreLib.AboveMenu();
+             BigStoreLib.MobileMenuFunction();
+             BigStoreLib.mobile_menu_with_woocat();
+             BigStoreLib.Top2Slider();
+             BigStoreLib.TopMultiSlide();
+             BigStoreLib.TopFullSlide();
                 if(big_store.big_store_move_to_top_optn){
-                  $this.MoveToTop();
+                  BigStoreLib.MoveToTop();
                 }
              if($('.header__cat__item.dropdown').length!==0){
-             $this.cat_toggle();
+             BigStoreLib.cat_toggle();
              }
 
-             $this.MobilenavBar();
+             BigStoreLib.MobilenavBar();
         },
+        
         sticky_sidebar_hide_toggle: function () {
                if($('#sidebar-primary.bigstr-sticky-sidebar').length!==0){
                       var lastScrollTop = 0;

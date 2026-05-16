@@ -5,25 +5,18 @@
   var wpmlRtl = $('html').attr('dir');
   var BigStoreWooLib = {
     init: function () {
-      this.bindEvents();
-    },
-    bindEvents: function () {
-      var $this = this;
-      $this.tooltip_option();
-      $this.listGridView();
-      $this.OffCanvas();
-      $this.cartDropdown();
-      $this.AddtoCartQuanty();
-      $this.AutoCompleteSearch();
-      $this.CategoryTabFilter();
-      $this.ProductSlide();
-      $this.ProductListSlide();
-      $this.CategorySlider();
-      $this.ProductImageTabFilter();
-      $this.cartopen();
-      $this.woccomerce_tab();
-      $this.product_descr_excerpt();
-      $this.tooltip();
+      BigStoreWooLib.tooltip_option();
+      BigStoreWooLib.listGridView();
+      BigStoreWooLib.OffCanvas();
+      BigStoreWooLib.AddtoCartQuanty();
+      BigStoreWooLib.CategoryTabFilter();
+      BigStoreWooLib.ProductSlide();
+      BigStoreWooLib.ProductListSlide();
+      BigStoreWooLib.CategorySlider();
+      BigStoreWooLib.ProductImageTabFilter();
+      BigStoreWooLib.woccomerce_tab();
+      BigStoreWooLib.product_descr_excerpt();
+      BigStoreWooLib.tooltip();
     },
 
     tooltip_option: function () {
@@ -205,68 +198,6 @@
         opn_shop_offcanvas_filter_close();
       });
     },
-    cartDropdown: function () {
-      /* woo, wc_add_to_cart_params */
-      if (typeof wc_add_to_cart_params === "undefined") {
-        return false;
-      }
-
-      $(document).on("click", ".ajax_add_to_cart", function (e) {
-        // Remove button selector
-        e.preventDefault();
-        var data1 = {
-          action: "big_store_product_count_update",
-        };
-        $.post(
-          woocommerce_params.ajax_url, // The AJAX URL
-          data1, // Send our PHP function
-          function (response_data) {
-            $("a.cart-content").html(response_data);
-            $(".return.wc-backward").remove();
-            $("body").toggleClass("cart-pan-active");
-            $(".cart-overlay").toggleClass("open");
-          }
-        );
-      });
-      // Ajax remove cart item
-      $(document).on("click", "a.remove", function (e) {
-        // Remove button selector
-        e.preventDefault();
-        // AJAX add to cart request
-        var $thisbutton = $(this);
-        if ($thisbutton.is(".remove")) {
-          //Check if the button has a product ID
-          if (!$thisbutton.attr("data-product_id")) {
-            return true;
-          }
-        }
-        $product_id = $thisbutton.attr("data-product_id");
-        var data = {
-          product_id: $product_id,
-          action: "big_store_product_remove",
-          nonce:bigstore.bignonce
-        };
-        $.post(
-          woocommerce_params.ajax_url, // The AJAX URL
-          data, // Send our PHP function
-          function (response) {
-            $(".open-quickcart-dropdown").html(response);
-            var data = {
-              action: "big_store_product_count_update",
-              nonce:bigstore.bignonce
-            };
-            $.post(
-              woocommerce_params.ajax_url, // The AJAX URL
-              data, // Send our PHP function
-              function (response_data) {
-                $("a.cart-content").html(response_data);
-              }
-            );
-          }
-        );
-        return false;
-      });
-    },
     AddtoCartQuanty: function () {
       $("form.cart").on("click", "button.plus, button.minus", function () {
         // Get current quantity values
@@ -289,163 +220,6 @@
             qty.val(val - step);
           }
         }
-      });
-    },
-
-    AutoCompleteSearch: function () {
-      $(document).on(
-        "click",
-        ".thmk-woocommerce-search-wrap .thmk-woocommerce-search-wrap-submit button",
-        autoCompleteSubmit
-      );
-      function autoCompleteSubmit() {
-        let button_ = $(this);
-        let getUrl = button_.attr("data-url");
-        let mainWrap = button_.closest(".thmk-woocommerce-search-wrap");
-        let text_ = mainWrap.find('input[name="product-search-text"]').val();
-        let category = mainWrap.find('select[name="product_cat"]').val();
-        let title_ = text_ && text_ !== "" ? text_ : "";
-        let cate_ = category && category !== "" ? category : "";
-        // console.log("getUrl -> ", getUrl);
-        if (getUrl) {
-          let urlText =
-            getUrl + `?s=${title_}&product_cat=${cate_}&post_type=product`;
-          window.location.href = urlText;
-        }
-      }
-      // by click in input-----------------------------------------
-      $(document).on(
-        "click",
-        '.thmk-woocommerce-search-wrap input[name="product-search-text"]',
-        function () {
-          const searchBoxTxt = $(this);
-          const mainWrap = searchBoxTxt.closest(
-            ".thmk-woocommerce-search-wrap"
-          );
-          const resultWrap = mainWrap.find(".thmk-woocommerce-search-result");
-          const getLiresult = resultWrap.find("li");
-          let searchVal = searchBoxTxt.val();
-          if (
-            !mainWrap.hasClass("loading") &&
-            searchVal &&
-            searchVal.length >= 2 &&
-            getLiresult.length > 0
-          ) {
-            resultWrap.show();
-          } else {
-            resultWrap.hide();
-          }
-        }
-      );
-      var searchTimeout = null;
-      //   by input keyup----------------------------------------------
-      $(document).on(
-        "keyup",
-        '.thmk-woocommerce-search-wrap input[name="product-search-text"]',
-        autoComplete
-      );
-      function autoComplete(e) {
-        // console.log("event typr", e.type);
-        const searchBoxTxt = $(this);
-        const mainWrap = searchBoxTxt.closest(".thmk-woocommerce-search-wrap");
-        const resultWrap = mainWrap.find(".thmk-woocommerce-search-result");
-        const resultWrapUl = resultWrap.find("ul");
-        const submitButton = mainWrap.find(
-          ".thmk-woocommerce-search-wrap-submit button"
-        );
-        let searchVal = searchBoxTxt.val();
-        if (searchVal && searchVal.length >= 2) {
-          mainWrap.addClass("loading");
-          //   hide click outside
-          jQuery(document).mouseup(function (e) {
-            if (!mainWrap.is(e.target) && mainWrap.has(e.target).length === 0) {
-              resultWrap.hide();
-            }
-          });
-          //   hide click outside
-          let select_ = mainWrap.find(".thmk-woocommerce-select");
-          let cat_ = select_.length && select_.val() ? select_.val() : "";
-          let dataToAjx = {
-            action: "big_store_search_site",
-            match: searchVal,
-            cat: cat_,
-            nonce:bigstore.bignonce
-          };
-          //   return;
-          clearTimeout(searchTimeout);
-          searchTimeout = setTimeout(() => {
-            $.ajax({
-              type: "POST",
-              dataType: "json",
-              url: bigstore.ajaxUrl,
-              data: dataToAjx,
-              success: function (response) {
-                // console.log("response -> ", response);
-                resultWrap.show();
-                if (response.data.length > 0) {
-                  let productLists = "";
-                  let viewMoreLink = "";
-                  let dataList = response.data;
-                  let getUrl = submitButton.attr("data-url");
-                  if (dataList.length > 5) {
-                    // fruits.slice(0, 5)
-                    dataList = dataList.slice(0, 5);
-                    let urlText =
-                      getUrl +
-                      `?s=${searchVal}&product_cat=${cat_}&post_type=product`;
-                    viewMoreLink +=
-                      '<li class="view-all-search"><a href="' + urlText + '">';
-                    viewMoreLink += "View all results";
-                    viewMoreLink += "</a></li>";
-                  }
-                  $.each(dataList, (index_, val_) => {
-                    productLists += '<li><a href="' + val_.link + '">';
-                    productLists +=
-                      '<div class="srch-prd-img"><img src="' +
-                      val_.imglink +
-                      '"></div>';
-                    productLists += '<div class="srch-prd-content">'; //content
-                    productLists +=
-                      '<span class="title">' + val_.label + "</span>";
-                    productLists += '<span class="price">'; //price
-                    productLists += val_.price;
-                    productLists += "</span>"; //price
-                    productLists += "</div>"; //content
-                    productLists += "</a></li>";
-                  });
-                  productLists += viewMoreLink;
-                  resultWrapUl.html(productLists);
-                  mainWrap.removeClass("loading");
-                } else {
-                  let htmlBlank = '<li class="no-result">No Result Found</li>';
-                  resultWrapUl.html(htmlBlank);
-                  mainWrap.removeClass("loading");
-                }
-              },
-            });
-          }, 50);
-        } else {
-          resultWrap.hide();
-        }
-      }
-    },
-    cartopen: function () {
-      $(document).on("click", "a.cart-contents", function (e) {
-        e.preventDefault();
-        $("body").toggleClass("cart-pan-active");
-        $(".cart-overlay").toggleClass("open");
-      });
-
-      $(".cart-close-btn").click(function (e) {
-        $("body").removeClass("cart-pan-active");
-        $(".cart-overlay").removeClass("open");
-      });
-
-      $("body").click(function (evt) {
-        if (evt.target.class == ".open-cart") return;
-        if ($(evt.target).closest(".open-cart").length) return;
-        $("body").removeClass("cart-pan-active");
-        $(".cart-overlay").removeClass("open");
       });
     },
     /***********************/
